@@ -5,14 +5,26 @@
   <title>BySharon Streetwear</title>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    * {
-      box-sizing: border-box;
-    }body {
+    html {
+      scroll-behavior: smooth;
+    }* {
+  box-sizing: border-box;
+}
+
+body {
   margin: 0;
   font-family: 'Rubik', sans-serif;
-  background: #fff;
   color: #333;
   overflow-x: hidden;
+  background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #a18cd1);
+  background-size: 400% 400%;
+  animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
 }
 
 header {
@@ -52,11 +64,11 @@ nav a {
 }
 
 .left {
-  background: #f4f4f4;
+  background: rgba(255, 255, 255, 0.7);
 }
 
 .right {
-  background: linear-gradient(135deg, #fc466b, #3f5efb);
+  background: rgba(0, 0, 0, 0.6);
   color: white;
   flex-direction: column;
   text-align: center;
@@ -100,7 +112,7 @@ nav a {
 }
 
 .product-card {
-  background: #fff;
+  background: rgba(255,255,255,0.9);
   box-shadow: 0 2px 15px rgba(0,0,0,0.1);
   border-radius: 12px;
   overflow: hidden;
@@ -149,7 +161,7 @@ nav a {
 .contact-section {
   padding: 60px 20px;
   text-align: center;
-  background: linear-gradient(135deg, #f8f8f8, #e0e0e0);
+  background: rgba(255, 255, 255, 0.7);
   animation: fadeInUp 1.2s ease;
 }
 
