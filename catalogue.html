@@ -1,111 +1,216 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html><html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BySharon Catalogue</title>
+  <title>BySharon Streetwear</title>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
-      color: #333;
-    }
-    header {
-      background-color: #111;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-      font-size: 32px;
-      font-weight: normal;
-      animation: fadeInDown 1s ease-out;
-    }
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    .catalogue {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      padding: 20px;
-      gap: 20px;
-    }
-    .product-card {
-      width: 300px;
-      background: #fff;
-      border-radius: 16px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-      transition: transform 0.3s, box-shadow 0.3s;
-    }
-    .product-card:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 14px 28px rgba(0,0,0,0.15);
-    }
-    .product-card img {
-      width: 100%;
-      height: auto;
-      display: block;
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover img {
-      transform: scale(1.05);
-    }
-    .product-info {
-      padding: 15px;
-      text-align: center;
-    }
-    .product-info h2 {
-      font-size: 20px;
-      margin: 10px 0 5px;
-    }
-    .product-info .price {
-      display: inline-block;
-      margin-top: 10px;
-      font-size: 16px;
-      font-weight: normal;
-      background-color: #2a9d8f;
-      color: white;
-      padding: 5px 12px;
-      border-radius: 20px;
-    }
-    .whatsapp-btn {
-      margin-top: 15px;
-      background-color: #25D366;
-      color: white;
-      border: none;
-      padding: 10px 18px;
-      border-radius: 30px;
-      text-decoration: none;
-      display: inline-block;
-      font-weight: bold;
-      transition: background 0.3s ease;
-    }
-    .whatsapp-btn:hover {
-      background-color: #1ebe5b;
-    }
-    footer {
-      text-align: center;
-      padding: 20px;
-      background-color: #f0f0f0;
-      font-size: 14px;
-    }
+    * {
+      box-sizing: border-box;
+    }body {
+  margin: 0;
+  font-family: 'Rubik', sans-serif;
+  background: #fff;
+  color: #333;
+  overflow-x: hidden;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background-color: #000;
+  color: white;
+  animation: fadeInDown 1s ease;
+}
+
+header h1 {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin-left: 20px;
+  font-weight: 400;
+}
+
+.hero {
+  display: flex;
+  height: 100vh;
+  animation: fadeIn 1.2s ease;
+}
+
+.hero .left, .hero .right {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+}
+
+.left {
+  background: #f4f4f4;
+}
+
+.right {
+  background: linear-gradient(135deg, #fc466b, #3f5efb);
+  color: white;
+  flex-direction: column;
+  text-align: center;
+}
+
+.right h1 {
+  font-size: 48px;
+  margin-bottom: 10px;
+  animation: slideInUp 1s ease;
+}
+
+.right p {
+  font-size: 16px;
+  margin-bottom: 30px;
+}
+
+.cta-btn {
+  background-color: #fff;
+  color: #3f5efb;
+  padding: 12px 24px;
+  font-weight: bold;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  transition: 0.3s;
+  text-decoration: none;
+  animation: bounceIn 1s ease;
+}
+
+.cta-btn:hover {
+  background-color: #3f5efb;
+  color: white;
+}
+
+.catalogue {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 40px;
+  animation: fadeIn 1s ease;
+}
+
+.product-card {
+  background: #fff;
+  box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+  opacity: 0;
+  animation: cardFadeIn 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-card img {
+  width: 100%;
+  height: auto;
+}
+
+.product-card h2 {
+  font-size: 18px;
+  margin: 10px 0 5px;
+}
+
+.product-card .price {
+  color: #2a9d8f;
+  font-weight: bold;
+}
+
+.whatsapp-btn {
+  margin: 15px auto;
+  display: inline-block;
+  background-color: #25D366;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s;
+}
+
+.whatsapp-btn:hover {
+  background-color: #1ebd5a;
+}
+
+footer {
+  text-align: center;
+  padding: 30px;
+  font-size: 14px;
+  background: #f0f0f0;
+  animation: fadeInUp 1.2s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+  0% { opacity: 0; transform: translateY(20px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideInUp {
+  0% { transform: translateY(100px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes bounceIn {
+  0% { transform: scale(0.5); opacity: 0; }
+  60% { transform: scale(1.05); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes cardFadeIn {
+  to { opacity: 1; }
+}
+
   </style>
 </head>
-<body>
-  <header>BySharon | Fan-Inspired Streetwear</header>
-  <div class="catalogue">
+<body>  <header>
+    <h1>BySharon</h1>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#catalogue">Products</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>  <section class="hero" id="home">
+    <div class="left">
+      <img src="https://raw.githubusercontent.com/sharon123-dotcom/bysharon-catalogue/main/retouch_2025061523595262.jpg" alt="T-shirt" style="max-width: 100%; border-radius: 16px;">
+    </div>
+    <div class="right">
+      <h1>CREAMS</h1>
+      <p>Fan-inspired streetwear — bold, minimal and made for you.</p>
+      <a class="cta-btn" href="#catalogue">Shop Now</a>
+    </div>
+  </section>  <section class="catalogue" id="catalogue">
     <div class="product-card">
       <img src="https://raw.githubusercontent.com/sharon123-dotcom/bysharon-catalogue/main/retouch_2025061523595262.jpg" alt="GTA Styled T-Shirt" />
-      <div class="product-info">
-        <h2>GTA Styled T-Shirt</h2>
-        <p class="price">₹399</p>
-        <a class="whatsapp-btn" href="https://wa.me/919778296916?text=I'm%20interested%20in%20the%20GTA%20Styled%20T-Shirt">Order via WhatsApp</a>
-      </div>
+      <h2>GTA Styled T-Shirt</h2>
+      <p class="price">₹399</p>
+      <a class="whatsapp-btn" href="https://api.whatsapp.com/send?phone=919778296916&text=I'm%20interested%20in%20the%20GTA%20Styled%20T-Shirt">Order via WhatsApp</a>
     </div>
-  </div>
-  <footer>© 2025 BySharon</footer>
-</body>
+  </section>  <footer>
+    © 2025 BySharon
+  </footer></body>
 </html>
